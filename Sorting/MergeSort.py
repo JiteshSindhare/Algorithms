@@ -1,14 +1,13 @@
 
-def mergeSort(arr,low,high):
+def mergeSort(arr,low,high,depth):
     mid=int((len(arr))/2)
     L=arr[:mid]
     R=arr[mid:]
-    #print(len(L)*' ','/',len(R)*' ',"\ ")
-    #vis.append((L,R))
-    #visualize(vis)
+    # print(len(L)*' ','/',len(R)*' ',"\ ")
+    # print(L,R)
     if len(arr)>1:
-        mergeSort(L,low,mid)
-        mergeSort(R,mid,high)
+        mergeSort(L,low,mid,depth)
+        mergeSort(R,mid,high,depth)
 
         i,j,k=0,0,0
 
@@ -37,5 +36,5 @@ if __name__ == '__main__':
     arr=input("Enter numbers separated by comma: ").split(',')
     arr=list(map(lambda x:int(x),arr))
     print(arr)
-    mergeSort(arr,0,len(arr))
+    mergeSort(arr,0,len(arr),0)
     print(arr)
